@@ -21,4 +21,23 @@ export class PetRepository {
       }
     });
   }
+
+  async petsByClientId(clienteId: string){
+    return this.prisma.pet.findMany({
+      where: {clienteId},
+      
+      select:{
+        id: true,
+        nome: true,
+        idade: true,
+        peso:true,
+        
+        imagens:{
+          select:{
+            url: true
+          }
+        }
+      }
+    })
+  }
 }

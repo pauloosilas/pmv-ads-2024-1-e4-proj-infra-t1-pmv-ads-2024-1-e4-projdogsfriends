@@ -17,6 +17,7 @@ import { EmailModule } from './email/email.module';
 import { ReviewModule } from './review/review.module';
 import { ImagemModule } from './imagem/imagem.module';
 
+
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true,

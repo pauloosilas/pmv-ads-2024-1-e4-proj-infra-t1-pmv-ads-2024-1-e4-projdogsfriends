@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Card } from "./components/Card";
 import Container from "./components/Container"
 import { useSearchClient } from "./hooks/useSearchClient";
+import { useSelector } from "react-redux";
  
 
 const Pesquisa = () => {
+  const {token} = useSelector(state => state.auth)
   const [termo, setTermo] = useState("Belo Horizonte");
   const [uf, setUf] = useState("MG")
 
@@ -12,7 +14,7 @@ const Pesquisa = () => {
    
   const url = `http://localhost:3000/cliente/search?term=${termo}&estado=${uf}`
 
-  const {clients } = useSearchClient(url); 
+  const {clients } = useSearchClient(url, token); 
   
   return ( 
     

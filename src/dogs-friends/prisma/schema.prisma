@@ -19,9 +19,13 @@ model Cliente {
   sobreMim    String?
   telefones   Telefone[]
   pets        Pet[]
-  pedidos     Pedido[]
+  pedidos     Pedido[]  @relation("Cliente")
+  pedidosPasseador Pedido[] @relation("Passeador")
   enderecos   Endereco[] 
   reviews Review[]
+
+  favCliente Favorito[] @relation("FavCliente")
+  favPasseador Favorito[] @relation("FavPasseador")
 
   agendaPasseador AgendaPasseador[]
   @@map("Cliente")
@@ -98,14 +102,17 @@ model Pedido{
   id String @id @default(uuid()) @map("_id") @db.String
   precoTotal Float
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
   agendaPasseadorId String @db.String 
   agendaPasseador AgendaPasseador @relation(fields: [agendaPasseadorId], references: [id])
 
   clienteId String @db.String 
-  cliente Cliente @relation(fields: [clienteId], references: [id])
+  cliente Cliente @relation("Cliente",fields: [clienteId], references: [id])
 
   passeadorId String @db.String 
-  //passeador Passeador @relation(fields: [passeadorId], references: [id])
+  passeador Cliente @relation("Passeador", fields: [passeadorId], references: [id])
 
   passeio Passeio?
 
@@ -151,4 +158,15 @@ model Review {
 
   passeioId String @db.String @unique
   passeio Passeio @relation(fields: [passeioId], references: [id])
+}
+
+model Favorito {
+  id String @id @default(uuid()) @map("_id") @db.String
+
+  clienteId String @db.String 
+  cliente Cliente @relation("FavCliente", fields: [clienteId], references: [id])
+
+  passeadorId String @db.String @unique
+  passeador Cliente @relation("FavPasseador", fields: [passeadorId], references: [id])
+
 }

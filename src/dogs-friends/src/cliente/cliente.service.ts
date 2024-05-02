@@ -63,6 +63,7 @@ export class ClienteService {
       const cliente = await this.prisma.cliente.findUnique({
         where: { id },
         select: {
+          id: true,
           nome: true,
           sobrenome: true,
           sobreMim: true,
@@ -75,6 +76,7 @@ export class ClienteService {
               logradouro: true,
             },
           },
+         
           reviews: {
             select: {
               nota: true,
@@ -194,6 +196,31 @@ export class ClienteService {
     });
 
     return clientes;
+  }
+
+  async updateFavorite(toogle: boolean, clienteId: string, passeadorId:string){
+    
+    try {
+      if(toogle){
+        await this.prisma.favorito.create({
+           data:{
+            clienteId,
+            passeadorId,
+           }
+         })
+         return
+       }
+       await this.prisma.favorito.delete({
+        where:{
+         passeadorId
+        },
+        
+        
+       })
+       return
+    } catch (error) {
+      this.handleExeptions(error)
+    }
   }
 
   private handleExeptions(error: any) {

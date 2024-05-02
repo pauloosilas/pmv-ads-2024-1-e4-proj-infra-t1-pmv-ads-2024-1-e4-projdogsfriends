@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Post, Put, Query, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
 import { Cliente } from "@prisma/client";
 import { JwtGuard } from "../auth/guard";
+import { Favorito } from "./dto/create-favorite.dto";
 
 
 @UseGuards(JwtGuard)
@@ -48,5 +49,9 @@ export class ClienteController {
      return this.clienteService.search(term, estado, +limit, +offset)
     }
 
-    
+    @Post("favorito")
+    updateFavorite(@Body() favorito: Favorito){
+      this.clienteService.updateFavorite(favorito.toogle, favorito.clienteId, favorito.passeadorId)
+    }
+
 }

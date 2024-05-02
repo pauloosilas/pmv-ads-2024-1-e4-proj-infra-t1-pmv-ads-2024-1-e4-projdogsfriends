@@ -9,4 +9,8 @@ export class PetService {
   async create(petdto: PetDto): Promise<PetEntity> {
     return this.petRepository.create(petdto);
   }
+
+  async petsByClientId(clienteId: string){
+    return this.petRepository.petsByClientId(clienteId)
+  } 
 }

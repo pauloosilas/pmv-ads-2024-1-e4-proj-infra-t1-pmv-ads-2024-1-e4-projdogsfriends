@@ -1,7 +1,8 @@
 import { MapContainer } from "../../Pesquisa/components/MapContainer";
-import { GridImages, Reviews, Card, Header } from "./";
+import { GridImages, Reviews, Header } from "./";
 import {Footer} from "../../../components/footer/Footer"
 import { AgandaCalendar } from "../../../components/calendar/AgendaCalendar";
+import { Card } from "../../../components/client/Card";
 
 const Container = ({ client, activeMarker, setActiveMarker }) => {
   if (client === undefined || client === null) return <></>;
