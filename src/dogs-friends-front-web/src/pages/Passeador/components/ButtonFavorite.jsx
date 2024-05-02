@@ -6,7 +6,14 @@ import { useSelector } from "react-redux";
 export const ButtonFavorite = ({passeadorId}) => {
   const [favorite, setFavorite] = useState(false)
   const {user, token} = useSelector(state => state.auth)
-    
+  console.log(token)
+  useEffect(() => {
+    const id = user.favCliente.filter(p => p.passeadorId == passeadorId)
+    console.log(id.length)
+    if(id.length > 0)
+        setFavorite(true)
+  },[user])
+  
   const toogleFavorite = () => {
    try {
     api.post("cliente/favorito", {

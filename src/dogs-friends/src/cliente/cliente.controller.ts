@@ -29,7 +29,7 @@ export class ClienteController {
 
   @Get('me')
     getMe(@GetUser()cliente: Cliente){
-        return cliente;
+        return this.clienteService.getCliente(cliente.id);
     }
 
     @Get('passeador/:id')

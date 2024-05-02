@@ -17,7 +17,6 @@ export const Router = () => {
     dispatch(tryLoginWithToken())
   },[token])
 
-  console.log(isLogged)
   return (
     <Routes>
         <Route path="/" element={<Home />}/>

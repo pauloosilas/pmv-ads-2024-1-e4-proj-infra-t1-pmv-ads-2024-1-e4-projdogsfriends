@@ -11,6 +11,29 @@ import { EditClienteDto } from './dto';
 export class ClienteService {
   constructor(private prisma: PrismaService) {}
 
+  async getCliente(id: string) {
+    try {
+      return await this.prisma.cliente.findUnique({
+        where: {id},
+        select:{
+          id: true,
+          nome: true,
+          sobrenome:true,
+          sobreMim:true,
+          fotoPerfil:true,
+
+          enderecos: true,
+          favCliente: {
+            select:{
+              passeadorId:true
+            }
+          }
+        }
+      })
+    } catch (error) {
+      this.handleExeptions(error)
+    }
+  }
   async editCliente(clienteId: string, dto: EditClienteDto) {
     const user = await this.prisma.cliente.update({
       where: {
@@ -214,8 +237,6 @@ export class ClienteService {
         where:{
          passeadorId
         },
-        
-        
        })
        return
     } catch (error) {
