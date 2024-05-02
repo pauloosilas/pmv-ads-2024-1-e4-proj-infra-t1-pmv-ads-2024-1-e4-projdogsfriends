@@ -24,7 +24,7 @@ export const login = (loginUser) => {
     }
 }
 
-export const tryLoginWithToken = () => {
+export const tryLoginWithToken = (oldToken) => {
     return async(dispatch) => {
         try {
          const token = localStorage.getItem("access_token") 
@@ -32,14 +32,15 @@ export const tryLoginWithToken = () => {
            dispatch(setToken(null)) 
            return 
          }
-
+        
          const user = await getUser(token)
         
          if(user === null || user === undefined) return
+         dispatch(setUser(user))
        
-        dispatch(setToken(token)) 
-        dispatch(setUser(user))
-
+       if(oldToken !== token) {
+         dispatch(setToken(token)) 
+       }
          return user;
         } catch (error) {
             

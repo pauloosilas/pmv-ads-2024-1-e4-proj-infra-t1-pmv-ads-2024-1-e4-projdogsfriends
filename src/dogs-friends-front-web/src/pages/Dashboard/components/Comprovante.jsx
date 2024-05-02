@@ -22,12 +22,12 @@ export const Comprovante = ( { pedidoId } ) => {
           <span>Dine-in</span>
         </p>
         <p className="flex justify-between">
-          <span className="text-gray-400">Host:</span>
-          <span>Jane Doe</span>
+          <span className="text-gray-400">Cliente:</span>
+          <span>{pedido.cliente.nome} {pedido.cliente.sobrenome}</span>
         </p>
         <p className="flex justify-between">
-          <span className="text-gray-400">Customer:</span>
-          <span>John Doe</span>
+          <span className="text-gray-400">Passeador:</span>
+          <span>{pedido.passeador.nome} {pedido.passeador.sobrenome}</span>
         </p>
       </div>
       <div className="flex flex-col gap-3 pb-6 pt-2 text-xs">
@@ -35,7 +35,7 @@ export const Comprovante = ( { pedidoId } ) => {
           <thead>
             <tr className="flex">
               <th className="w-full py-2">Pet's</th>
-              <th className="min-w-[44px] py-2">Quantidade</th>
+              <th className="min-w-[44px] py-2">QTD</th>
               <th className="min-w-[44px] py-2">Total</th>
             </tr>
           </thead>

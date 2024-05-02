@@ -14,7 +14,8 @@ export const Router = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(tryLoginWithToken())
+    if(token === null)
+    dispatch(tryLoginWithToken(token))
   },[token])
 
   return (
