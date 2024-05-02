@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import Container from "../components/Container"
-import { ListPets } from "../components"
+import { Favoritos, ListPets } from "../components"
 
  const Home = () => {
 
@@ -11,6 +11,7 @@ import { ListPets } from "../components"
     <>    
         <Container user={user}>
           <ListPets userId={user.id}/>
+          <Favoritos favoritos={user.favCliente} />
         </Container>
     </>
   )

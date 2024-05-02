@@ -25,7 +25,20 @@ export class ClienteService {
           enderecos: true,
           favCliente: {
             select:{
-              passeadorId:true
+              passeadorId:true,
+              passeador:{
+                select:{
+                  nome: true,
+                  sobrenome: true,
+                  fotoPerfil: true,
+                  enderecos: {
+                    select: {
+                      uf:true,
+                      cidade: true
+                    }
+                  }
+                }
+              }
             }
           }
         }

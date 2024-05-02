@@ -5,7 +5,7 @@ import { CardPet, Add } from "./"
 export const ListPets = React.memo(({userId}) => {
  
   const { pets } = useGetPets(userId)  
- console.log(pets)
+
   return (
     <div className="flex flex-col px-10">
         <span>Pets</span>

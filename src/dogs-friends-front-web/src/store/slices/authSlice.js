@@ -5,7 +5,7 @@ const initialState = {
     user: null,
     isLogged: false,
     isLoading: false,
-    token: '',
+    token: null,
 }
 
 export const authSlice = createSlice({
@@ -27,7 +27,7 @@ export const authSlice = createSlice({
         logout: (state) => {
             localStorage.removeItem('access_token')
             state.user = null;
-            state.token = '';
+            state.token = null;
             state.isLogged = false;
         }
     }
