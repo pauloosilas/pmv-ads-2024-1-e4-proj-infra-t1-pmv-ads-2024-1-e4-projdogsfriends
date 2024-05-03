@@ -6,6 +6,7 @@ import Home from "../Dashboard/Home/Home.jsx"
 import Profile from "../Dashboard/Profile/Profile.jsx"
 import Historico from "../Dashboard/Pedidos/Historico.jsx"
 import Pedido from "../Dashboard/Pedidos/Pedido.jsx"
+import FinalizarPedido from "../Dashboard/Pedidos/FinalizarPedido.jsx"
  
 
 export const PrivateRoutes = () => {
@@ -16,6 +17,7 @@ export const PrivateRoutes = () => {
         <Route path="dashboard" element={<Home />} />
         <Route path="dashboard/pedidos" element={<Historico />} />
         <Route path="dashboard/pedidos/:pedidoId" element={<Pedido />} />
+        <Route path="dashboard/pedido/finalizar/:passeioId" element={<FinalizarPedido />} />
         <Route path="dashboard/profile" element={<Profile />} />
     </Routes>
   )

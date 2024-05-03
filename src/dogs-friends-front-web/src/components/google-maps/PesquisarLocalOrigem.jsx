@@ -16,7 +16,7 @@ import usePlacesAutocomplete, {
       requestOptions: {
          language: 	"pt-BR",
          componentRestrictions: { country: "BR"},
-        // types: ["(cities)", "(regions)"]
+         types: ["(cities)"]
       },
       debounce: 400,
     });
@@ -42,7 +42,13 @@ import usePlacesAutocomplete, {
         // Get latitude and longitude via utility functions
         getGeocode({ address: description }).then((results) => {
           const { lat, lng } = getLatLng(results[0]);
-          Props.setUf(results[0].address_components[2].short_name)
+          
+          let res = results[0].address_components[0].short_name;
+         
+          if(results[0].address_components.length === 4)
+           res = results[0].address_components[2].short_name;
+
+          Props.setUf(res)
           Props.setTermo(results[0].address_components[0].short_name)
            
         });

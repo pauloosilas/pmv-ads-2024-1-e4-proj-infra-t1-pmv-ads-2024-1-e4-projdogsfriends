@@ -18,6 +18,29 @@ export class PasseioService {
    }
   }
 
+  async getPasseio(id: string){
+    try {
+      return await this.prisma.passeio.findUnique({ 
+        where: {id},
+        select:{
+          id: true,
+          realizado: true,
+          pedido:{
+            select:{
+              passeador:{
+                select:{
+                  id: true,                  
+                }
+              }
+            }
+          }
+        }
+      })
+    } catch (error) {
+      this.handleExeptions(error)
+    }
+  }
+
   private handleExeptions(error: any){
     if(error.code === "P2025") throw new NotFoundException()
     throw new InternalServerErrorException()

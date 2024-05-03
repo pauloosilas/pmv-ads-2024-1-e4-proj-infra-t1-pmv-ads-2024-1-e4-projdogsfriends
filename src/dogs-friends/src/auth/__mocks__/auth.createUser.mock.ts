@@ -6,5 +6,5 @@ export const createUserMock: Prisma.ClienteUncheckedCreateInput = {
     sobrenome: faker.person.lastName(),
     cpf: "93365565544",
     email: faker.internet.email(),
-    senha: faker.internet.password()
+    senha: faker.internet.password(),
 }

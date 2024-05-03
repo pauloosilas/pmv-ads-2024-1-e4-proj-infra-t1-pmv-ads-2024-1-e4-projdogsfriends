@@ -10,7 +10,7 @@ export const ListPedidos = ({userId}) => {
             pedidos ?
             (
                 pedidos.map(pedido => (
-                   <CardPedido pedido={pedido}/>
+                   <CardPedido key={pedido.id} pedido={pedido}/>
                 ))
             )
             :

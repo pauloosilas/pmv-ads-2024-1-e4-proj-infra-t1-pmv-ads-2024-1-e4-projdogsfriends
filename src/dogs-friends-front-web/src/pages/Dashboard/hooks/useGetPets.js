@@ -11,8 +11,7 @@ export const useGetPets = (userId) => {
         async() => {
           const res = await api.get(`pet/cliente/${userId}`)
           dataPet = res.data
-      
-          console.log(dataPet)
+    
           setPets(dataPet)
         }
       )()  
