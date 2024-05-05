@@ -8,7 +8,7 @@ export const ListPets = React.memo(({userId}) => {
 
   return (
     <div className="flex flex-col px-10">
-        <span>Pets</span>
+        <span className="font-bold">Meus Pets</span>
         
         <div className="flex flex-row gap-4 mb-16">
         {
@@ -25,7 +25,9 @@ export const ListPets = React.memo(({userId}) => {
         }
          
         </div>
-       <Add label={"Add Pet"}/>
+      <div className="mt-28">
+        <Add label={"Add Pet"}/>
+      </div>
     </div>
   )
 }

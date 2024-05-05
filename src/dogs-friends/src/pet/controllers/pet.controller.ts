@@ -17,4 +17,8 @@ export class PetController {
     return this.petService.petsByClientId(clienteId)
   }
 
+  @Get(":id")
+   getPet(@Param("id", ParseUUIDPipe) id: string){
+    return this.petService.getPet(id)
+  }
 }

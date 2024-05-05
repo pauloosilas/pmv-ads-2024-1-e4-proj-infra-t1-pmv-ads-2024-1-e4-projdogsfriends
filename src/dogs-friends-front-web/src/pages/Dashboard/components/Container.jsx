@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card } from "../../../components/client/Card";
+import { Menu } from "./Menu";
 
 const Container = ({user, children}) => {
-     console.log(user)
+  
     return (
       <>
       {/* <header className=" bg-white w-full fixed z-10">
@@ -20,10 +21,7 @@ const Container = ({user, children}) => {
          </div>
           <div className="flex flex-col gap-10">
              <Card client={user} perfil={true}/>
-             <div className="flex flex-col">
-                <Link to={"http://localhost:3001/user/dashboard"}>Dashboard</Link>  
-                <Link to={"http://localhost:3001/user/dashboard/pedidos"}>Meus Pedidos</Link>  
-             </div>
+             <Menu />
           </div>
       
         </section>
@@ -31,7 +29,7 @@ const Container = ({user, children}) => {
         <main className="w-full h-full">
           <div className="p-6">
             <div className="w-full mb-6">
-              <span>Perfil</span>
+              
             </div>
   
   

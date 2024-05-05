@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { UpdatePasseioDto } from './dto/update-passeio.dto';
-import { PrismaService } from 'src/prisma/service/prisma.service';
+import { PrismaService } from '../prisma/service/prisma.service';
 import { Passeio } from './entities/passeio.entity';
 
 @Injectable()

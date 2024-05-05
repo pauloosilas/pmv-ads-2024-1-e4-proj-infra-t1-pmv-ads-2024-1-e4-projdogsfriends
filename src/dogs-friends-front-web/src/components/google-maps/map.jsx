@@ -94,7 +94,7 @@ export default function Map({
         onUnmount={onUnmount}
         options={options}
         onClick={() => setIsInfoWindowOpen(false)}
-        className="fixed h-[350px] w-full top-0"
+         
       >
         {
 

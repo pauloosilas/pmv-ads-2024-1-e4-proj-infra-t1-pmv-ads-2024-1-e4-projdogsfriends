@@ -7,10 +7,10 @@ export const Favoritos = ({favoritos}) => {
   return (
     <div>
         <div>
-            <span>Meus Favoritos</span>
+            <span className="font-bold">Meus Favoritos</span>
         </div>
         <div className="flex flex-row gap-2">
-            <div className=" grid grid-cols-3">
+            <div className=" grid grid-cols-2 gap-20">
                 {
                    
                 favoritos.map(favorito => (

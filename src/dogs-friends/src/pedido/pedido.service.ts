@@ -2,8 +2,8 @@ import { Injectable, InternalServerErrorException, NotFoundException } from '@ne
 import { CreatePedidoDto } from './dto/create-pedido.dto';
 import { UpdatePedidoDto } from './dto/update-pedido.dto';
 import { PrismaService } from '../prisma/service/prisma.service';
-import { EmailService } from 'src/email/email.service';
-import { MessageDto } from 'src/email/dto/message-dto';
+import { EmailService } from '../email/email.service';
+import { MessageDto } from '../email/dto/message-dto';
 import { EMAIL_MESSAGE } from 'constants/email';
 
 @Injectable()

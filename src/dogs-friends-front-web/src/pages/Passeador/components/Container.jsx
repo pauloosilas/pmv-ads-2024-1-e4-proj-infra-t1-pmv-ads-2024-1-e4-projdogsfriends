@@ -17,7 +17,7 @@ const Container = ({ client, activeMarker, setActiveMarker }) => {
 
     <div className=" flex md:flex-row flex-col sm:px-12 lg:px-24 2xl:px-72 w-full text-zinc-700">
      
-      <section className="lg:w-80 flex flex-col items-center gap-2 bg-zinc-100 h-[100vh] md:fixed">      
+      <section id="aside-menu" className="lg:w-80 flex flex-col items-center gap-2 bg-zinc-100 h-[100vh] md:fixed">      
        <div className="p-5">
           <Card client={client} />
        </div>

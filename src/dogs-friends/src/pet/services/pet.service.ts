@@ -13,4 +13,8 @@ export class PetService {
   async petsByClientId(clienteId: string){
     return this.petRepository.petsByClientId(clienteId)
   } 
+
+  async getPet(id: string){
+    return await this.petRepository.findOne(id)
+  }
 }
